@@ -5,6 +5,25 @@ const findInput = document.querySelector(".find-input")
 const replaceInput = document.querySelector(".replace-input")
 const replaceAllButton = document.querySelector(".replace-all-button")
 
+replaceAllButton.addEventListener("click", function () {
+
+    let inputText = findInput.value
+    let newInputText = replaceInput.value
+    for (let i = 0; i < rowElements.length; i++) {
+        let rowElement = rowElements[i]
+        let getCell = getCellElements(rowElement)
+        for (let counter = 0; counter < getCell.length; counter++) {
+            if (getCell[counter].innerHTML.includes(inputText)) {
+                getCell[counter].innerHTML = getCell[counter].innerHTML.replace(inputText, newInputText)
+
+            }
+        }
+
+    }
+
+
+
+});
 // The following variable holds your OUTER ARRAY of row elements.
 // Later you will need an OUTER LOOP to loop over the individual elements within
 // this array.
@@ -15,7 +34,7 @@ const rowElements = document.querySelectorAll(".row")
 // Call this function from WITHIN your row elements loop. Then you will, in turn,
 // need to loop over the resulting cell elements. But where should this whole
 // NESTED LOOP go? Think through the user's experience: when should WHAT happen? 
-function getCellElements (currentRowElement) {
+function getCellElements(currentRowElement) {
     return currentRowElement.querySelectorAll(".cell")
 }
 
