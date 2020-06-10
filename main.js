@@ -13,7 +13,7 @@ replaceAllButton.addEventListener("click", function () {
         let rowElement = rowElements[i]
         let getCell = getCellElements(rowElement)
         for (let counter = 0; counter < getCell.length; counter++) {
-            if (getCell[counter].innerHTML.includes(inputText)) {
+            while (getCell[counter].innerHTML.includes(inputText)) {
                 getCell[counter].innerHTML = getCell[counter].innerHTML.replace(inputText, newInputText)
 
             }
